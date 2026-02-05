@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DVGA25_Datatransformer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc4b59f60e91efa0fa513bd6b4b483ad824f395b")]
 [assembly: System.Reflection.AssemblyProductAttribute("DVGA25_Datatransformer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DVGA25_Datatransformer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

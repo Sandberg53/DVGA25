@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JnDaVcQcHtk=",
+  "dgSpecHash": "kSccR2d+zLk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Documents\\DVGA25_Datatransformer\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Documents\\DVGA25\\DVGA25\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",

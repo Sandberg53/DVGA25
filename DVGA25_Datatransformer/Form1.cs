@@ -46,7 +46,7 @@ namespace DVGA25_Datatransformer
             if (fileName != null)
             {
                 //TODO LAB1: byt eventuellt filsökväg till filen som ska exporteras
-                filePathAndName = @"C:\Temp\" + fileName;
+                filePathAndName = @"" + fileName;
 
                 exportFileToSFTP(filePathAndName, fileName);
             }
@@ -76,7 +76,7 @@ namespace DVGA25_Datatransformer
             string fileDateTime = DateTime.Now.ToString("yyyyMMddHHmmssfff");
             
             //TODO LAB1: byt eventuellt filsökväg till filen som ska exporteras 
-            string destinationPathAndFileName = @"C:\Temp\";
+            string destinationPathAndFileName = @"";
             string destinationFileName;
 
 
