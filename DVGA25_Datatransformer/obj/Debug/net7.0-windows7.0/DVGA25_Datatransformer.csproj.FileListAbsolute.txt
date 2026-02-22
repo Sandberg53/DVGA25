@@ -51,7 +51,6 @@ C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-w
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\Newtonsoft.Json.dll
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\Renci.SshNet.dll
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.csproj.AssemblyReference.cache
-C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.Form1.resources
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.Properties.Resources.resources
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.csproj.GenerateResource.cache
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.GeneratedMSBuildEditorConfig.editorconfig
@@ -65,3 +64,4 @@ C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-w
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.pdb
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.genruntimeconfig.cache
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\ref\DVGA25_Datatransformer.dll
+C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.SkatteverkResponse.resources

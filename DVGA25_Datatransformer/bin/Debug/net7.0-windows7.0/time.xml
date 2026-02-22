@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<employees>
+  <employee>
+    <employee_id>1001</employee_id>
+    <name>Jane Doe</name>
+    <extent>100</extent>
+    <designation>Sales Manager</designation>
+    <department>Sales</department>
+    <join_date>20110101</join_date>
+    <email>jane.doe@somecompany.com</email>
+    <age>39</age>
+    <shortname>JanDoe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1002</employee_id>
+    <name>John Doe</name>
+    <extent>100</extent>
+    <designation>Consultant</designation>
+    <department>Development</department>
+    <join_date>20230601</join_date>
+    <email>john.doe@somecompany.com</email>
+    <age>22</age>
+    <shortname>JohDoe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1003</employee_id>
+    <name>James Doe</name>
+    <extent>100</extent>
+    <designation>Support Engineer</designation>
+    <department>Support</department>
+    <join_date>19991101</join_date>
+    <email>james.doe@somecompany.com</email>
+    <age>46</age>
+    <shortname>JamDoe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1004</employee_id>
+    <name>June Doe</name>
+    <extent>50</extent>
+    <designation>Consultant</designation>
+    <department>Development</department>
+    <join_date>20220301</join_date>
+    <email>june.doe@somecompany.com</email>
+    <age>48</age>
+    <shortname>JunDoe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1005</employee_id>
+    <name>Jocelyn Doe</name>
+    <extent>100</extent>
+    <designation>Sales Representative</designation>
+    <department>Sales</department>
+    <join_date>20170701</join_date>
+    <email>jocelyn.doe@somecompany.com</email>
+    <age>41</age>
+    <shortname>JocDoe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1006</employee_id>
+    <name>Justin Doe</name>
+    <extent>100</extent>
+    <designation>Administrator</designation>
+    <department>Headquarters</department>
+    <join_date>20240101</join_date>
+    <email>justin.doe@somecompany.com</email>
+    <age>20</age>
+    <shortname>JusDoe</shortname>
+  </employee>
+</employees>

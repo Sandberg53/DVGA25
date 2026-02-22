@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<employees>
+  <employee>
+    <employee_id>1001</employee_id>
+    <firstname>Jane</firstname>
+    <lastname>Doe</lastname>
+    <adress>Random Street 11</adress>
+    <city>New York</city>
+    <extent>100</extent>
+    <taxing>34</taxing>
+    <monthly_salary>62500</monthly_salary>
+    <tax_reduction>18580</tax_reduction>
+    <bank_name>NORDEA</bank_name>
+    <bank_account>33260873</bank_account>
+    <vacation_days>25</vacation_days>
+    <phone>555-112-54312</phone>
+    <email>jane.doe@somecompany.com</email>
+    <birth_date>19860507</birth_date>
+    <personal_id>1109123401</personal_id>
+    <age>39</age>
+    <shortname>Jan Doe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1002</employee_id>
+    <firstname>John</firstname>
+    <lastname>Doe</lastname>
+    <adress>Old Street 66</adress>
+    <city>Philadelphia</city>
+    <extent>100</extent>
+    <taxing>34</taxing>
+    <monthly_salary>41666</monthly_salary>
+    <tax_reduction>9707</tax_reduction>
+    <bank_name>SWEDBANK</bank_name>
+    <bank_account>44670801</bank_account>
+    <vacation_days>30</vacation_days>
+    <phone>555-155-77441</phone>
+    <email>john.doe@somecompany.com</email>
+    <birth_date>20030507</birth_date>
+    <personal_id>1109123402</personal_id>
+    <age>22</age>
+    <shortname>Joh Doe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1003</employee_id>
+    <firstname>James</firstname>
+    <lastname>Doe</lastname>
+    <adress>Typewriter Street 2</adress>
+    <city>Chicago</city>
+    <extent>100</extent>
+    <taxing>34</taxing>
+    <monthly_salary>30833</monthly_salary>
+    <tax_reduction>6587</tax_reduction>
+    <bank_name>SEB</bank_name>
+    <bank_account>22209081</bank_account>
+    <vacation_days>24</vacation_days>
+    <phone>555-747-4242</phone>
+    <email>james.doe@somecompany.com</email>
+    <birth_date>19790507</birth_date>
+    <personal_id>1109123403</personal_id>
+    <age>46</age>
+    <shortname>Jam Doe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1004</employee_id>
+    <firstname>June</firstname>
+    <lastname>Doe</lastname>
+    <adress>Typewriter Street 2</adress>
+    <city>Chicago</city>
+    <extent>50</extent>
+    <taxing>34</taxing>
+    <monthly_salary>45833</monthly_salary>
+    <tax_reduction>11135</tax_reduction>
+    <bank_name>NORDEA</bank_name>
+    <bank_account>33260873</bank_account>
+    <vacation_days>20</vacation_days>
+    <phone>555-747-4242</phone>
+    <email>june.doe@somecompany.com</email>
+    <birth_date>19770507</birth_date>
+    <personal_id>1109123404</personal_id>
+    <age>48</age>
+    <shortname>Jun Doe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1005</employee_id>
+    <firstname>Jocelyn</firstname>
+    <lastname>Doe</lastname>
+    <adress>Broad Street 1</adress>
+    <city>New Jersey</city>
+    <extent>100</extent>
+    <taxing>34</taxing>
+    <monthly_salary>24166</monthly_salary>
+    <tax_reduction>4712</tax_reduction>
+    <bank_name>NORDEA</bank_name>
+    <bank_account>33160661</bank_account>
+    <vacation_days>22</vacation_days>
+    <phone>555-556-89675</phone>
+    <email>jocelyn.doe@somecompany.com</email>
+    <birth_date>19840507</birth_date>
+    <personal_id>1109123405</personal_id>
+    <age>41</age>
+    <shortname>Joc Doe</shortname>
+  </employee>
+  <employee>
+    <employee_id>1006</employee_id>
+    <firstname>Justin</firstname>
+    <lastname>Doe</lastname>
+    <adress>Random Street 11</adress>
+    <city>New York</city>
+    <extent>100</extent>
+    <taxing>34</taxing>
+    <monthly_salary>20833</monthly_salary>
+    <tax_reduction>3846</tax_reduction>
+    <bank_name>SWEDBANK</bank_name>
+    <bank_account>44554321</bank_account>
+    <vacation_days>0</vacation_days>
+    <phone>555-112-54312</phone>
+    <email>justin.doe@somecompany.com</email>
+    <birth_date>20050507</birth_date>
+    <personal_id>1109123406</personal_id>
+    <age>20</age>
+    <shortname>Jus Doe</shortname>
+  </employee>
+</employees>

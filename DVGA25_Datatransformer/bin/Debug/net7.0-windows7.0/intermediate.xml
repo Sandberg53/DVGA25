@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Employees>
+  <Employee>
+    <EmpID>1001</EmpID>
+    <PID>1109123401</PID>
+    <Firstname>Jane</Firstname>
+    <Middlename>Mary</Middlename>
+    <Lastname>Doe</Lastname>
+    <EmpType>1</EmpType>
+    <Extent>100</Extent>
+    <Designation>Sales Manager</Designation>
+    <Birthdate>19860507</Birthdate>
+    <Address>Random Street 11</Address>
+    <AreaCode>11334</AreaCode>
+    <City>New York</City>
+    <Phone>555-112-54312</Phone>
+    <WorkEmail>jane.doe@somecompany.com</WorkEmail>
+    <PrivateEmail>jane.doe@hotmail.com</PrivateEmail>
+    <JoinDate>20110101</JoinDate>
+    <Department>Sales</Department>
+    <Bank>NORDEA</Bank>
+    <Account>33260873</Account>
+    <AnualSalary>750000</AnualSalary>
+    <VacDays>25</VacDays>
+    <DiverLicens>Yes</DiverLicens>
+    <DiverLicensType>B</DiverLicensType>
+  </Employee>
+  <Employee>
+    <EmpID>1002</EmpID>
+    <PID>1109123402</PID>
+    <Firstname>John</Firstname>
+    <Middlename>Richard</Middlename>
+    <Lastname>Doe</Lastname>
+    <EmpType>1</EmpType>
+    <Extent>100</Extent>
+    <Designation>Consultant</Designation>
+    <Birthdate>20030507</Birthdate>
+    <Address>Old Street 66</Address>
+    <AreaCode>46651</AreaCode>
+    <City>Philadelphia</City>
+    <Phone>555-155-77441</Phone>
+    <WorkEmail>john.doe@somecompany.com</WorkEmail>
+    <PrivateEmail>johndoe123@gmail.com</PrivateEmail>
+    <JoinDate>20230601</JoinDate>
+    <Department>Development</Department>
+    <Bank>SWEDBANK</Bank>
+    <Account>44670801</Account>
+    <AnualSalary>500000</AnualSalary>
+    <VacDays>30</VacDays>
+    <DiverLicens>Yes</DiverLicens>
+    <DiverLicensType>B</DiverLicensType>
+  </Employee>
+  <Employee>
+    <EmpID>1003</EmpID>
+    <PID>1109123403</PID>
+    <Firstname>James</Firstname>
+    <Middlename>Xerxes</Middlename>
+    <Lastname>Doe</Lastname>
+    <EmpType>1</EmpType>
+    <Extent>100</Extent>
+    <Designation>Support Engineer</Designation>
+    <Birthdate>19790507</Birthdate>
+    <Address>Typewriter Street 2</Address>
+    <AreaCode>55334</AreaCode>
+    <City>Chicago</City>
+    <Phone>555-747-4242</Phone>
+    <WorkEmail>james.doe@somecompany.com</WorkEmail>
+    <PrivateEmail>james_doe1@hotmail.com</PrivateEmail>
+    <JoinDate>19991101</JoinDate>
+    <Department>Support</Department>
+    <Bank>SEB</Bank>
+    <Account>22209081</Account>
+    <AnualSalary>370000</AnualSalary>
+    <VacDays>24</VacDays>
+    <DiverLicens>Yes</DiverLicens>
+    <DiverLicensType>B</DiverLicensType>
+  </Employee>
+  <Employee>
+    <EmpID>1004</EmpID>
+    <PID>1109123404</PID>
+    <Firstname>June</Firstname>
+    <Middlename>Sara</Middlename>
+    <Lastname>Doe</Lastname>
+    <EmpType>2</EmpType>
+    <Extent>50</Extent>
+    <Designation>Consultant</Designation>
+    <Birthdate>19770507</Birthdate>
+    <Address>Typewriter Street 2</Address>
+    <AreaCode>55334</AreaCode>
+    <City>Chicago</City>
+    <Phone>555-747-4242</Phone>
+    <WorkEmail>june.doe@somecompany.com</WorkEmail>
+    <PrivateEmail>june_doe77@hotmail.com</PrivateEmail>
+    <JoinDate>20220301</JoinDate>
+    <Department>Development</Department>
+    <Bank>NORDEA</Bank>
+    <Account>33260873</Account>
+    <AnualSalary>550000</AnualSalary>
+    <VacDays>20</VacDays>
+    <DiverLicens>Yes</DiverLicens>
+    <DiverLicensType>BE</DiverLicensType>
+  </Employee>
+  <Employee>
+    <EmpID>1005</EmpID>
+    <PID>1109123405</PID>
+    <Firstname>Jocelyn</Firstname>
+    <Middlename>Ann</Middlename>
+    <Lastname>Doe</Lastname>
+    <EmpType>1</EmpType>
+    <Extent>100</Extent>
+    <Designation>Sales Representative</Designation>
+    <Birthdate>19840507</Birthdate>
+    <Address>Broad Street 1</Address>
+    <AreaCode>56301</AreaCode>
+    <City>New Jersey</City>
+    <Phone>555-556-89675</Phone>
+    <WorkEmail>jocelyn.doe@somecompany.com</WorkEmail>
+    <PrivateEmail>jocelyndoe@gmail.com</PrivateEmail>
+    <JoinDate>20170701</JoinDate>
+    <Department>Sales</Department>
+    <Bank>NORDEA</Bank>
+    <Account>33160661</Account>
+    <AnualSalary>290000</AnualSalary>
+    <VacDays>22</VacDays>
+    <DiverLicens>Yes</DiverLicens>
+    <DiverLicensType>B</DiverLicensType>
+  </Employee>
+  <Employee>
+    <EmpID>1006</EmpID>
+    <PID>1109123406</PID>
+    <Firstname>Justin</Firstname>
+    <Middlename>Patrick</Middlename>
+    <Lastname>Doe</Lastname>
+    <EmpType>3</EmpType>
+    <Extent>100</Extent>
+    <Designation>Administrator</Designation>
+    <Birthdate>20050507</Birthdate>
+    <Address>Random Street 11</Address>
+    <AreaCode>11334</AreaCode>
+    <City>New York</City>
+    <Phone>555-112-54312</Phone>
+    <WorkEmail>justin.doe@somecompany.com</WorkEmail>
+    <PrivateEmail>justin1005@gmail.com</PrivateEmail>
+    <JoinDate>20240101</JoinDate>
+    <Department>Headquarters</Department>
+    <Bank>SWEDBANK</Bank>
+    <Account>44554321</Account>
+    <AnualSalary>250000</AnualSalary>
+    <VacDays>0</VacDays>
+    <DiverLicens>No</DiverLicens>
+    <DiverLicensType>-</DiverLicensType>
+  </Employee>
+</Employees>

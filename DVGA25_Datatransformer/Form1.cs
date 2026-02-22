@@ -1,53 +1,64 @@
-using System.Collections;
-using System.Collections.Immutable;
-using System.Data;
-using System.Net.Sockets;
-using System.Reflection.Metadata;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Xml;
-using System.Xml.Linq;
-using Newtonsoft.Json;
-using Renci;
+ï»¿using Newtonsoft.Json;
 using Renci.SshNet;
 using Renci.SshNet.Common;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.Net.Sockets;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using static DVGA25_Datatransformer.Form1;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+
+
 
 namespace DVGA25_Datatransformer
 {
+    public class SkatteverkResponse
+    {
+        [JsonPropertyName("results")]
+        public List<SkatteTabellRow> Results { get; set; }
+
+        [JsonPropertyName("next")]
+        public string Next { get; set; }
+    }
     public partial class Form1 : Form
     {
+        const string HR_FILENAME = "employee_master.csv";
+
         public Form1()
         {
             InitializeComponent();
         }
 
+        // ===================== KNAPP-HÃ„NDELSER =====================
         private void btnImport_Click(object sender, EventArgs e)
         {
             try
             {
-                importFromSFTP("Employee.csv");
-                //rtbInput.Text = File.ReadAllText(@"C:\Temp\intermediate.xml");
-                //rtbInput.Text = File.ReadAllText(@"C:\Temp\Employee.csv");
+                importFromSFTP(HR_FILENAME);
             }
             catch (Exception ex)
             {
                 rtbImportStatus.Text += "Error in import: Exception: " + ex.Message + "\n";
-            }  
+            }
         }
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-
             string? fileName;
             string filePathAndName;
 
-            fileName = saveDataToFile(); //spara undan data till fil inför export
+            fileName = saveDataToFile();
             if (fileName != null)
             {
-                //TODO LAB1: byt eventuellt filsökväg till filen som ska exporteras
                 filePathAndName = @"" + fileName;
-
                 exportFileToSFTP(filePathAndName, fileName);
             }
             else
@@ -61,24 +72,31 @@ namespace DVGA25_Datatransformer
             copyData();
         }
 
+        private async void btnTransform_Click(object sender, EventArgs e)
+        {
+            copyData();
+
+            transformCSVToXMLIntermediate();
+            transformIntermediateToXML_Time();
+            await transformIntermediateToXML_Salary(); // ðŸ”¹ async
+        }
+
+        // ===================== HJÃ„LPMETODER =====================
         private void copyData()
         {
             rtbOutput.Text = rtbInput.Text;
         }
+
         private string? saveDataToFile()
         {
-            //spara data i "exportfönstret" till fil:
             string tempData = rtbOutput.Text;
             string[] textLines = tempData.Split("\n");
-            
-            //TODO LAB1: ändra till ditt kau-id:
+
             string kau_id = "danisand104";
             string fileDateTime = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-            
-            //TODO LAB1: byt eventuellt filsökväg till filen som ska exporteras 
+
             string destinationPathAndFileName = @"";
             string destinationFileName;
-
 
             try
             {
@@ -96,20 +114,16 @@ namespace DVGA25_Datatransformer
                 sw.Close();
 
                 return destinationFileName;
-
             }
             catch (Exception e)
             {
                 rtbExportStatus.Text += "Error in saveDataToFile: Exception: " + e.Message + "\n";
             }
-            finally
-            {
-            }
-            return null; //returnera null om filen inte kunde sparas
+            return null;
         }
+
         private void exportFileToSFTP(string sourceFileAndPath, string destinationFileName)
         {
-            //TODO LAB1: peka ut din privata SSH-nyckel och byt ut till ditt kau-id 
             string sshPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\.ssh\id_ed25519";
             var privateKeyFile = new PrivateKeyFile(sshPath);
             string kau_ID = "danisand104";
@@ -123,14 +137,19 @@ namespace DVGA25_Datatransformer
                 if (client.IsConnected)
                 {
                     rtbExportStatus.Text += "Connected!\n";
-                    client.UploadFile(File.OpenRead(@sourceFileAndPath), "out/" + destinationFileName);
-                    rtbExportStatus.Text += "File uploaded.\n";
+                    string ts = DateTime.Now.ToString("yyyyMMddHHmmssfff");
 
-                    //kod för att lista innehållet i "out" mappen om man önskar:
-                    //foreach (var sftpFile in client.ListDirectory("out"))
-                    //{
-                    //   rtbExportStatus.Text += $"\t{sftpFile.FullName}\n";
-                    //}
+                    client.UploadFile(
+                        File.OpenRead(@"salary.xml"),
+                        $"out/salary_{kau_ID}_{ts}.xml"
+                    );
+
+                    client.UploadFile(
+                        File.OpenRead(@"time.xml"),
+                        $"out/time_{kau_ID}_{ts}.xml"
+                    );
+
+                    rtbExportStatus.Text += "File uploaded.\n";
                     client.Disconnect();
                     rtbExportStatus.Text += "Disconnected.\n";
                 }
@@ -151,18 +170,16 @@ namespace DVGA25_Datatransformer
             {
                 rtbExportStatus.Text += $"Sftp Error: {e.Message}\n";
             }
-
         }
 
         private void importFromSFTP(string filename)
         {
             string path = "in/" + filename;
 
-            //TODO LAB1: använd dina inloggningsuppgifter
             string sshPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\.ssh\id_ed25519";
             var privateKeyFile = new PrivateKeyFile(sshPath);
             string kau_ID = "danisand104";
-            //----------------------------------------------------
+
             using SftpClient client = new("vortex.cse.kau.se", 22, kau_ID, privateKeyFile);
 
             try
@@ -183,7 +200,6 @@ namespace DVGA25_Datatransformer
             catch (Exception e) when (e is SshConnectionException || e is SocketException || e is ProxyException)
             {
                 rtbImportStatus.Text += $"Error connecting to server: {e.Message}\n";
-
             }
             catch (SshAuthenticationException e)
             {
@@ -199,154 +215,224 @@ namespace DVGA25_Datatransformer
             }
         }
 
-        private void btnTransform_Click(object sender, EventArgs e)
-        {
+        // ===================== TRANSFORMER =====================
 
-            //LAB1: kopiera den importerade filen 
-            copyData();
-
-
-            //LAB2 a):
-            //transformCSVToXMLIntermediate();
-            //LAB2 b):
-            //transformIntermediateToXML();
- 
-
-        }
-        private void transformIntermediateToXML()
-        {
-            try { 
-                XmlDocument doc = new();
-                doc.Load(@"C:\Temp\intermediate.xml");
-                XmlNodeList? entities = doc.SelectNodes("/Employees/Employee"); //hämta ut alla "Employee"-element
-
-                XElement employees = new XElement("employees"); //"Root"-elementet för ut-filen
-                if(entities is not null && entities.Count > 0) 
-                { 
-                    foreach (XmlNode entity in entities) //loopa genom alla "Employee"-element i in-filen
-                    {
-                        string employee_id = entity["EmpID"]!.InnerText;
-                        string name = entity["Firstname"]!.InnerText + " " + entity["Lastname"]!.InnerText; 
-                        XElement employee = new XElement("employee"); //barn till "Root"-elementet ("Employees)
-                        employee.Add(new XElement("employee_id", employee_id));
-                        employee.Add(new XElement("name", name));
-                        employees.Add(employee);
-                    }
-                }
- 
-                rtbOutput.Text = employees.ToString();
-                employees.Save(@"C:\Temp\systemB.xml");
-                }
-            catch (Exception e)
-            {
-                rtbExportStatus.Text += "Error in formIntermediateToXML_App: Exception: " + e.Message + "\n";
-            }
-        }
-
-        private void transformFlatfileToXML_App()
-        {
-            //string rtbText = rtbInput.Text;
-            //string[] source = rtbText.Split('\n'); //dela upp varje rad i flatfilen
-
-
-            string[] source = File.ReadAllLines(@"C:\Temp\Employee.txt");
-           
-            XElement employees = new XElement("Employees"); //"Root"-elementet
-
-            for (int i = 0; i < source.Length; i++)
-            {
-                XElement employee = new XElement("Employee"); //barn till "Root"-elementet ("Employees)
-                employee.Add(new XElement("EmpID", source[i].Substring(0, 3)));
-                employee.Add(new XElement("Firstname", source[i].Substring(3, 10).TrimEnd()));
-                employee.Add(new XElement("Lastname", source[i].Substring(13, 12).TrimEnd()));
-                employee.Add(new XElement("Birthdate", source[i].Substring(25, 6)));
-                employee.Add(new XElement("Address", source[i].Substring(31, 15).TrimEnd()));
-                employee.Add(new XElement("City", source[i].Substring(46, 10).TrimEnd()));
-                employee.Add(new XElement("Phone", source[i].Substring(56, 8).TrimEnd()));
-                employee.Add(new XElement("Email", source[i].Substring(64, 30).TrimEnd()));
-                employees.Add(employee);
-            }
-            employees.Save(@"C:\Temp\intermediate.xml");
-
-
-            rtbOutput.Text = employees.ToString();
-
-        }
-
-        private void transformCSVToXML_App()
-        {
-            string rtbText = rtbInput.Text;
-
-            string[] source = rtbText.Split('\n');
-            XElement employees = new XElement("Employees"); //"Root"-elementet
-
-            for (int i = 0; i < source.Length; i++)
-            {
-                string[] fields = source[i].Split(',');
-                XElement employee = new XElement("Employee"); //barn till "Root"-elementet ("Employees)
-                employee.Add(new XElement("EmpID", fields[0]));
-                employee.Add(new XElement("Firstname", fields[1]));
-                employee.Add(new XElement("Lastname", fields[2]));
-                employee.Add(new XElement("Birthdate", fields[3]));
-                employee.Add(new XElement("Address", fields[4]));
-                employee.Add(new XElement("City", fields[5]));
-                employee.Add(new XElement("Phone", fields[6]));
-                employee.Add(new XElement("Email", fields[7]));
-                employees.Add(employee);
-            }
-            rtbOutput.Text = employees.ToString();
-
-        }
         private void transformCSVToXMLIntermediate()
         {
-            string[] source = File.ReadAllLines(@"C:\Temp\Employee.csv");
-            XElement employees = new XElement("Employees"); //"Root"-elementet
+            string[] source = rtbInput.Text.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+            XElement employees = new XElement("Employees");
 
             for (int i = 0; i < source.Length; i++)
             {
                 string[] fields = source[i].Split(',');
-                XElement employee = new XElement("Employee"); //barn till "Root"-elementet ("Employees)
+                XElement employee = new XElement("Employee");
                 employee.Add(new XElement("EmpID", fields[0]));
-                employee.Add(new XElement("Firstname", fields[1]));
-                employee.Add(new XElement("Lastname", fields[2]));
-                employee.Add(new XElement("Birthdate", fields[3]));
-                employee.Add(new XElement("Address", fields[4]));
-                employee.Add(new XElement("City", fields[5]));
-                employee.Add(new XElement("Phone", fields[6]));
-                employee.Add(new XElement("Email", fields[7]));
+                employee.Add(new XElement("PID", fields[1]));
+                employee.Add(new XElement("Firstname", fields[2]));
+                employee.Add(new XElement("Middlename", fields[3]));
+                employee.Add(new XElement("Lastname", fields[4]));
+                employee.Add(new XElement("EmpType", fields[5]));
+                employee.Add(new XElement("Extent", fields[6]));
+                employee.Add(new XElement("Designation", fields[7]));
+                employee.Add(new XElement("Birthdate", fields[8]));
+                employee.Add(new XElement("Address", fields[9]));
+                employee.Add(new XElement("AreaCode", fields[10]));
+                employee.Add(new XElement("City", fields[11]));
+                employee.Add(new XElement("Phone", fields[12]));
+                employee.Add(new XElement("WorkEmail", fields[13]));
+                employee.Add(new XElement("PrivateEmail", fields[14]));
+                employee.Add(new XElement("JoinDate", fields[15]));
+                employee.Add(new XElement("Department", fields[16]));
+                employee.Add(new XElement("Bank", fields[17]));
+                employee.Add(new XElement("Account", fields[18]));
+                employee.Add(new XElement("AnualSalary", fields[19]));
+                employee.Add(new XElement("VacDays", fields[20]));
+                employee.Add(new XElement("DiverLicens", fields[21]));
+                employee.Add(new XElement("DiverLicensType", fields[22]));
+
                 employees.Add(employee);
             }
-            employees.Save(@"C:\Temp\intermediate.xml");
-            
+            employees.Save(@"intermediate.xml");
         }
 
-        private XmlDocument JsonToXML(string json)
+        private void transformIntermediateToXML_Time()
         {
-            XmlDocument doc = new XmlDocument();
-
-            using (var reader = JsonReaderWriterFactory.CreateJsonReader(Encoding.UTF8.GetBytes(json), XmlDictionaryReaderQuotas.Max))
+            try
             {
-                XElement xml = XElement.Load(reader);
-                doc.LoadXml(xml.ToString());
+                XmlDocument doc = new();
+                doc.Load(@"intermediate.xml");
+                XmlNodeList? entities = doc.SelectNodes("/Employees/Employee");
+                XElement time = new XElement("employees");
+
+                if (entities != null)
+                {
+                    foreach (XmlNode e in entities)
+                    {
+                        XElement employee = new XElement("employee");
+                        employee.Add(new XElement("employee_id", e["EmpID"]!.InnerText));
+                        employee.Add(new XElement("name", e["Firstname"]!.InnerText + " " + e["Lastname"]!.InnerText));
+                        employee.Add(new XElement("extent", e["Extent"]!.InnerText));
+                        employee.Add(new XElement("designation", e["Designation"]!.InnerText));
+                        employee.Add(new XElement("department", e["Department"]!.InnerText));
+                        employee.Add(new XElement("join_date", e["JoinDate"]!.InnerText));
+                        employee.Add(new XElement("email", e["WorkEmail"]?.InnerText ?? ""));
+
+                        string birth = e["Birthdate"]!.InnerText;
+                        DateTime birthDate = DateTime.ParseExact(birth, "yyyyMMdd", null);
+                        int age = DateTime.Today.Year - birthDate.Year;
+                        if (birthDate > DateTime.Today.AddYears(-age)) age--;
+                        employee.Add(new XElement("age", age));
+
+                        employee.Add(new XElement("shortname",
+                            e["Firstname"]!.InnerText.Substring(0, 3) + e["Lastname"]!.InnerText.Substring(0, 3)));
+
+                        time.Add(employee);
+                    }
+                }
+                time.Save(@"time.xml");
+            }
+            catch (Exception ex)
+            {
+                rtbExportStatus.Text += "Time transform error: " + ex.Message + "\n";
+            }
+        }
+
+        // ===================== SKATTETABELL & SALARY =====================
+
+        
+        
+
+        public class SkatteTabellRow
+        {
+            [JsonPropertyName("inkomst fr.o.m.")]
+            public string IncomeFromRaw { get; set; }
+
+            [JsonPropertyName("inkomst t.o.m.")]
+            public string IncomeToRaw { get; set; }
+
+            [JsonPropertyName("kolumn 1")]
+            public string Column1Raw { get; set; }
+
+            // Parsed values
+            public int IncomeFrom =>
+                int.Parse(IncomeFromRaw, CultureInfo.InvariantCulture);
+
+            public int IncomeTo =>
+                int.Parse(IncomeToRaw, CultureInfo.InvariantCulture);
+
+            public int Column1 =>
+                int.Parse(Column1Raw, CultureInfo.InvariantCulture);
+    }
+
+
+
+
+
+
+        private async Task<List<SkatteTabellRow>> GetTaxTableAsync(HttpClient client, int tableNumber, int year)
+        {
+            int limit = 1000;
+            int offset = 0;
+
+            var allResults = new List<SkatteTabellRow>();
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            string url = $"https://skatteverket.entryscape.net/rowstore/dataset/88320397-5c32-4c16-ae79-d36d95b17b95?tabellnr={tableNumber}&%C3%A5r={year}&_limit={limit}&_offset={offset}";
+            while (true)
+            {
+
+                var json = await client.GetStringAsync(url);
+
+                var page = JsonSerializer.Deserialize<SkatteverkResponse>(json, options);
+                if (!string.IsNullOrEmpty(page.Next))
+                {
+                    url = page.Next;
+                    allResults.AddRange(page.Results);
+                }
+                else
+                    break;
+               
+
             }
 
-            return doc;
+            return allResults;
         }
-        private void transform_XMLToJson()
-        {
 
-            XmlDocument doc = new XmlDocument();
-            doc.Load(@"C:\Temp\systemB.xml");
-            foreach (XmlNode node in doc)
+
+
+
+        private int GetTaxReductionFromTable(int monthlySalary,List<SkatteTabellRow> taxTable)
+        {
+            foreach (var row in taxTable)
             {
-                if (node.NodeType == XmlNodeType.XmlDeclaration) 
+                rtbExportStatus.Text += $"checking salery for row {row.IncomeFrom} ";
+                if (monthlySalary >= row.IncomeFrom &&
+                    monthlySalary <= row.IncomeTo)
                 {
-                    doc.RemoveChild(node); //ta bort xml-deklarationen (första raden) innan konvertering
+                    rtbExportStatus.Text += "tax reduction found!";
+                    return row.Column1;
                 }
             }
-            string json = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented);
 
-            rtbOutput.Text = json;
+            throw new ArgumentOutOfRangeException(
+                nameof(monthlySalary),
+                $"Ingen tabellrad matchar lÃ¶nen.");
+        }
+
+
+        private async Task transformIntermediateToXML_Salary()
+        {
+            try
+            {
+                XmlDocument doc = new();
+                doc.Load(@"intermediate.xml");
+                XmlNodeList? entities = doc.SelectNodes("/Employees/Employee");
+                XElement salary = new XElement("employees");
+
+                if (entities != null)
+                {
+                    using var client = new System.Net.Http.HttpClient();
+                    var taxTable = await GetTaxTableAsync(client, 34, 2025);
+
+                    foreach (XmlNode e in entities)
+                    {
+                        XElement employee = new XElement("employee");
+                        employee.Add(new XElement("employee_id", e["EmpID"]!.InnerText));
+                        employee.Add(new XElement("firstname", e["Firstname"]!.InnerText));
+                        employee.Add(new XElement("lastname", e["Lastname"]!.InnerText));
+                        employee.Add(new XElement("adress", e["Address"]?.InnerText ?? ""));
+                        employee.Add(new XElement("city", e["City"]!.InnerText));
+                        employee.Add(new XElement("extent", e["Extent"]!.InnerText));
+                        employee.Add(new XElement("taxing", "34"));
+
+                        int monthlySalary = int.Parse(e["AnualSalary"]!.InnerText) / 12;
+                        employee.Add(new XElement("monthly_salary", monthlySalary));
+
+                        int taxReduction = GetTaxReductionFromTable(monthlySalary, taxTable);
+                        employee.Add(new XElement("tax_reduction", taxReduction));
+
+                        employee.Add(new XElement("bank_name", e["Bank"]!.InnerText));
+                        employee.Add(new XElement("bank_account", e["Account"]!.InnerText));
+                        employee.Add(new XElement("vacation_days", e["VacDays"]!.InnerText));
+                        employee.Add(new XElement("phone", e["Phone"]!.InnerText));
+                        employee.Add(new XElement("email", e["WorkEmail"]?.InnerText ?? ""));
+                        employee.Add(new XElement("birth_date", e["Birthdate"]!.InnerText));
+                        employee.Add(new XElement("personal_id", e["PID"]!.InnerText));
+
+                        salary.Add(employee);
+                    }
+                }
+
+                salary.Save(@"salary.xml");
+            }
+            catch (Exception ex)
+            {
+                rtbExportStatus.Text += "Salary transform error: " + ex.Message + "\n";
+            }
         }
     }
 }
