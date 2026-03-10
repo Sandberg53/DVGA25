@@ -30,14 +30,56 @@ namespace DVGA25_Datatransformer
     }
     public partial class Form1 : Form
     {
+        private Producer producer;
         const string HR_FILENAME = "employee_master.csv";
 
         public Form1()
         {
             InitializeComponent();
+            producer = new Producer();
+
+            var btn = new Button();
+            btn.Text = "Export To Queue";
+            btn.Name = "btnNew";
+            btn.Location = new System.Drawing.Point(100, 10);
+            btn.Size = new System.Drawing.Size(140, 30);
+            btn.Click += btnExportToQueue_Click;
+            this.Controls.Add(btn);
         }
 
         // ===================== KNAPP-HÄNDELSER =====================
+
+        private async void btnExportToQueue_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string fileName = @"salary.xml";
+
+                if (File.Exists(fileName))
+                {
+                    await producer.PublishToQueue(fileName, "danisand104_SALARY", "SALARY");
+                }
+                else
+                {
+                    MessageBox.Show("Export error. File: " + fileName + " is not found.");
+                }
+
+                fileName = @"time.xml";
+
+                if (File.Exists(fileName))
+                {
+                    await producer.PublishToQueue(fileName, "danisand104_TIME", "TIME");
+                }
+                else
+                {
+                    MessageBox.Show("Export error. File: " + fileName + " is not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
         private void btnImport_Click(object sender, EventArgs e)
         {
             try
@@ -404,10 +446,10 @@ namespace DVGA25_Datatransformer
                         employee.Add(new XElement("employee_id", e["EmpID"]!.InnerText));
                         employee.Add(new XElement("firstname", e["Firstname"]!.InnerText));
                         employee.Add(new XElement("lastname", e["Lastname"]!.InnerText));
-                        employee.Add(new XElement("adress", e["Address"]?.InnerText ?? ""));
+                        employee.Add(new XElement("address", e["Address"]?.InnerText ?? ""));
                         employee.Add(new XElement("city", e["City"]!.InnerText));
                         employee.Add(new XElement("extent", e["Extent"]!.InnerText));
-                        employee.Add(new XElement("taxing", "34"));
+                        employee.Add(new XElement("taxcode", "34"));
 
                         int monthlySalary = int.Parse(e["AnualSalary"]!.InnerText) / 12;
                         employee.Add(new XElement("monthly_salary", monthlySalary));
