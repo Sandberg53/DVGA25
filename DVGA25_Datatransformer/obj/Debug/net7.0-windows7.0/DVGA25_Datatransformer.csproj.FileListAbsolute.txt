@@ -29,7 +29,6 @@ C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug
 C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\Newtonsoft.Json.dll
 C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\Renci.SshNet.dll
 C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.csproj.AssemblyReference.cache
-C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.Form1.resources
 C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.Properties.Resources.resources
 C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.csproj.GenerateResource.cache
 C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.GeneratedMSBuildEditorConfig.editorconfig
@@ -71,3 +70,11 @@ C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-w
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.IO.Pipelines.dll
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.Threading.Channels.dll
 C:\Users\danie\Documents\DVGA25\DVGA25\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.Threading.RateLimiting.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\RabbitMQ.Client.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.IO.Pipelines.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.Threading.Channels.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\bin\Debug\net7.0-windows7.0\System.Threading.RateLimiting.dll
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.SkatteverkResponse.resources
+C:\Users\danie\Documents\DVGA25_Datatransformer\DVGA25_Datatransformer\obj\Debug\net7.0-windows7.0\DVGA25_Datatransformer.sourcelink.json

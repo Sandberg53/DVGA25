@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ea+g5Y9/0k4=",
+  "dgSpecHash": "oc9IS0QL0MM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Documents\\DVGA25\\DVGA25_TIME\\DVGA25_TIME\\DVGA25_TIME.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Documents\\DVGA25_Datatransformer\\DVGA25_TIME\\DVGA25_TIME\\DVGA25_TIME.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\rabbitmq.client\\7.1.2\\rabbitmq.client.7.1.2.nupkg.sha512",

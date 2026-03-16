@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DVGA25_TIME")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46a0ac6cc8dda74d294800ca717f3edf523e532f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DVGA25_TIME")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DVGA25_TIME")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

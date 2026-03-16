@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NatVh51K6RI=",
+  "dgSpecHash": "hQu2f5PoSq4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Documents\\DVGA25\\DVGA25\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Documents\\DVGA25_Datatransformer\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",

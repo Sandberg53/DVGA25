@@ -426,18 +426,18 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\Documents\\DVGA25\\DVGA25\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\Documents\\DVGA25_Datatransformer\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
       "projectName": "DVGA25_Datatransformer",
-      "projectPath": "C:\\Users\\danie\\Documents\\DVGA25\\DVGA25\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
+      "projectPath": "C:\\Users\\danie\\Documents\\DVGA25_Datatransformer\\DVGA25_Datatransformer\\DVGA25_Datatransformer.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\Documents\\DVGA25\\DVGA25\\DVGA25_Datatransformer\\obj\\",
+      "outputPath": "C:\\Users\\danie\\Documents\\DVGA25_Datatransformer\\DVGA25_Datatransformer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0-windows7.0"
+        "net7.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -445,7 +445,7 @@
       },
       "frameworks": {
         "net7.0-windows7.0": {
-          "targetAlias": "net7.0-windows7.0",
+          "targetAlias": "net7.0-windows",
           "projectReferences": {}
         }
       },
@@ -463,7 +463,7 @@
     },
     "frameworks": {
       "net7.0-windows7.0": {
-        "targetAlias": "net7.0-windows7.0",
+        "targetAlias": "net7.0-windows",
         "dependencies": {
           "Newtonsoft.Json": {
             "target": "Package",

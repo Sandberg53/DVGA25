@@ -1,0 +1,6 @@
+1001,1109123401,Jane,Mary,Doe,1,100,Sales Manager,19860507,Random Street 11,11334,New York,555-112-54312,jane.doe@somecompany.com,jane.doe@hotmail.com,20110101,Sales,NORDEA,33260873,750000,25,Yes,B
+1002,1109123402,John,Richard,Doe,1,100,Consultant,20030507,Old Street 66,46651,Philadelphia,555-155-77441,john.doe@somecompany.com,johndoe123@gmail.com,20230601,Development,SWEDBANK,44670801,500000,30,Yes,B
+1003,1109123403,James,Xerxes,Doe,1,100,Support Engineer,19790507,Typewriter Street 2,55334,Chicago,555-747-4242,james.doe@somecompany.com,james_doe1@hotmail.com,19991101,Support,SEB,22209081,370000,24,Yes,B
+1004,1109123404,June,Sara,Doe,2,50,Consultant,19770507,Typewriter Street 2,55334,Chicago,555-747-4242,june.doe@somecompany.com,june_doe77@hotmail.com,20220301,Development,NORDEA,33260873,550000,20,Yes,BE
+1005,1109123405,Jocelyn,Ann,Doe,1,100,Sales Representative,19840507,Broad Street 1,56301,New Jersey,555-556-89675,jocelyn.doe@somecompany.com,jocelyndoe@gmail.com,20170701,Sales,NORDEA,33160661,290000,22,Yes,B
+1006,1109123406,Justin,Patrick,Doe,3,100,Administrator,20050507,Random Street 11,11334,New York,555-112-54312,justin.doe@somecompany.com,justin1005@gmail.com,20240101,Headquarters,SWEDBANK,44554321,250000,0,No,-

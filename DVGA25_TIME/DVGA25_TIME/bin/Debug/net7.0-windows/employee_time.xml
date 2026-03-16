@@ -3,11 +3,11 @@
   <employee>
     <employee_id>1001</employee_id>
     <name>Jane Doe</name>
-    <extent>100</extent>
+    <extent>99</extent>
     <designation>Sales Manager</designation>
     <department>Sales</department>
     <join_date>20110101</join_date>
-    <email>jane.doe123@somecompany.com</email>
+    <email>jane.doe123123@somecompany.com</email>
     <age>39</age>
     <shortname>JanDoe</shortname>
   </employee>

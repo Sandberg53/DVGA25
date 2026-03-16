@@ -6,7 +6,7 @@
     <lastname>Doe</lastname>
     <address>Random Street 11</address>
     <city>New York</city>
-    <extent>100</extent>
+    <extent>99</extent>
     <taxcode>34</taxcode>
     <monthly_salary>62500</monthly_salary>
     <tax_reduction>18580</tax_reduction>
@@ -14,7 +14,7 @@
     <bank_account>33260873</bank_account>
     <vacation_days>25</vacation_days>
     <phone>555-112-54312</phone>
-    <email>jane.doe123@somecompany.com</email>
+    <email>jane.doe123123@somecompany.com</email>
     <birth_date>19860507</birth_date>
     <personal_id>1109123401</personal_id>
   </employee>
